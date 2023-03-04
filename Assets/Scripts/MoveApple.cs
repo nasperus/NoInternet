@@ -4,17 +4,11 @@ using UnityEngine;
 
 public class MoveApple : MonoBehaviour
 {
-    Rigidbody2D rb;
-    public int moveSpeed;
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
+    [SerializeField] int moveSpeed;
 
-    
     void Update()
     {
-        rb.velocity = Vector3.left * moveSpeed;
+       transform.position += Vector3.left * moveSpeed * Time.deltaTime;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
