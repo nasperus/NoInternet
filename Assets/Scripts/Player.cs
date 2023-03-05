@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !isGround)
+        if (Input.GetMouseButtonDown(0) && !isGround)
         {
             rb.velocity = Vector3.up * jumpForce;
 
@@ -28,14 +28,20 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        isGround = false;
         if (collision.gameObject.CompareTag("Apple"))
         {
             GameManager.instance.gameOver = true;
             GameManager.instance.SetActiveTrue();
         }
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        isGround = false;
+
     }
 
     private void OnCollisionExit2D(Collision2D collision)
