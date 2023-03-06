@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     Rigidbody2D rb;
     [SerializeField] [Range(0,20)] int jumpForce;
+    [SerializeField] Animator animator;
     private bool isGround;
     void Start()
     {
@@ -16,9 +17,10 @@ public class Player : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !isGround)
+        if (Input.GetMouseButton(0) && !isGround && !GameManager.instance.gameOver)
         {
             rb.velocity = Vector3.up * jumpForce;
+            animator.SetBool("Jumping", true);
 
         }
 
@@ -41,7 +43,7 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         isGround = false;
-
+        animator.SetBool("Jumping", false);
     }
 
     private void OnCollisionExit2D(Collision2D collision)

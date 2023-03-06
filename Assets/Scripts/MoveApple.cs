@@ -5,14 +5,13 @@ using UnityEngine;
 public class MoveApple : MonoBehaviour
 {
     [SerializeField] int moveSpeed;
+    [SerializeField] int moveSpeed110;
+    [SerializeField] int moveSpeed300;
 
     void Update()
     {
-        if (!GameManager.instance.gameOver)
-        {
-            transform.position += Vector3.left * moveSpeed * Time.deltaTime;
-        }
-      
+        MoveObstacles();
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -23,5 +22,21 @@ public class MoveApple : MonoBehaviour
         }
     }
 
-    
+    private void MoveObstacles()
+    {
+        if (!GameManager.instance.gameOver && GameManager.instance.score < 110)
+        {
+            transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+        }
+
+        if (!GameManager.instance.gameOver && GameManager.instance.score > 110)
+        {
+            transform.position += Vector3.left * moveSpeed110 * Time.deltaTime;
+        }
+
+        if (!GameManager.instance.gameOver && GameManager.instance.score > 310)
+        {
+            transform.position += Vector3.left * moveSpeed300 * Time.deltaTime;
+        }
+    }
 }

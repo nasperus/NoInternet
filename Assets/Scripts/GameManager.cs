@@ -10,15 +10,15 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     [SerializeField] GameObject gameOverTag;
     [SerializeField] TextMeshProUGUI scoreText;
-    private double score = 0;
+    public double score = 0;
     public bool gameOver = false;
+
     private void Awake()
     {
         instance = this;
 
     
     }
-
 
     public void SetActiveTrue()
     {
@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
         
         int parseInt = Convert.ToInt32(score);
         scoreText.text = parseInt.ToString();
-        score += 0.1;
+        score += 0.01;
         
 
     }

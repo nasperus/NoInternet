@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -590,7 +590,7 @@ Transform:
   m_GameObject: {fileID: 633985498}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.5, y: -4.37, z: -1}
-  m_LocalScale: {x: 30, y: 1, z: 1}
+  m_LocalScale: {x: 40, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -801,9 +801,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e24250b933fe974380bc15beee684f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacle: {fileID: 5982257347135335238, guid: c1ba9eb90cbf43a47924a28279cfe94a, type: 3}
+  obstacle:
+  - {fileID: 5982257347135335238, guid: c1ba9eb90cbf43a47924a28279cfe94a, type: 3}
+  - {fileID: 6679313339779264215, guid: f9c67786740398845900f1aca348bb18, type: 3}
+  - {fileID: 7526484938476430703, guid: 80d3ec18777cc43408c99067a0da10ea, type: 3}
   minPos: 9
-  maxPos: 13
+  maxPos: 18
 --- !u!1 &1233551144
 GameObject:
   m_ObjectHideFlags: 0
@@ -1142,6 +1145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverTag: {fileID: 1279515522}
   scoreText: {fileID: 1672798286}
+  score: 0
   gameOver: 0
 --- !u!4 &1699946826
 Transform:
@@ -1301,7 +1305,7 @@ Animator:
   m_GameObject: {fileID: 1964122683}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a5da2f1ec68ab4d4aaf2dc7e9a35c838, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7840ec261e75afc48a7708e5de354830, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1438,6 +1442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 10
+  animator: {fileID: 1964122684}
 --- !u!1 &2110088963
 GameObject:
   m_ObjectHideFlags: 0
