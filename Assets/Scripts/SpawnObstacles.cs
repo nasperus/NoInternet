@@ -13,7 +13,7 @@ public class SpawnObstacles : MonoBehaviour
 
     private void Spawning()
     {
-        if (!GameManager.instance.gameOver)
+        if (!GameManager.instance.GameOver)
         {
             int randomPos = Random.Range(minPos, maxPos);
             int randomArray = Random.Range(0, obstacle.Length);

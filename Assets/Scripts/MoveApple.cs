@@ -7,6 +7,13 @@ public class MoveApple : MonoBehaviour
     [SerializeField] int moveSpeed;
     [SerializeField] int moveSpeed110;
     [SerializeField] int moveSpeed300;
+      AudioSource hitSound;
+
+
+     void Start()
+    {
+        hitSound = GetComponent<AudioSource>();    
+    }
 
     void Update()
     {
@@ -20,21 +27,27 @@ public class MoveApple : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            hitSound.Play();
+        }
     }
+
+  
 
     private void MoveObstacles()
     {
-        if (!GameManager.instance.gameOver && GameManager.instance.score < 110)
+        if (!GameManager.instance.GameOver && GameManager.instance.Score < 200)
         {
             transform.position += Vector3.left * moveSpeed * Time.deltaTime;
         }
 
-        if (!GameManager.instance.gameOver && GameManager.instance.score > 110)
+        if (!GameManager.instance.GameOver && GameManager.instance.Score > 200)
         {
             transform.position += Vector3.left * moveSpeed110 * Time.deltaTime;
         }
 
-        if (!GameManager.instance.gameOver && GameManager.instance.score > 310)
+        if (!GameManager.instance.GameOver && GameManager.instance.Score > 400)
         {
             transform.position += Vector3.left * moveSpeed300 * Time.deltaTime;
         }

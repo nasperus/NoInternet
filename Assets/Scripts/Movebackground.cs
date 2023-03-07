@@ -14,11 +14,12 @@ public class Movebackground : MonoBehaviour
    
     void Update()
     {
-        if (!GameManager.instance.gameOver)
+        if (!GameManager.instance.GameOver)
         {
             GameManager.instance.IncreaseScore();
             Vector2 offset = new Vector2(xOffset, 0);
             material.mainTextureOffset += offset * Time.deltaTime;
+            
         }
       
     }
